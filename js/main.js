@@ -30,10 +30,10 @@ const racingBikes = [
 let lessWeight = racingBikes[0].peso;      //Ricavo il peso della prima bici per fare il confronto con le altre
 let lessBikeWeight = {};                   //Creo un oggetto vuoto dove salvare i dati della bici più leggera
 
-racingBikes.forEach((element, index, array) => {
+racingBikes.forEach((element) => {
     if(lessWeight >= element.peso) {
         lessWeight = element.peso;
-        lessBikeWeight = (array[index]);    //Con array[index] salvo l'oggetto bici con peso minore
+        lessBikeWeight = (element);
     }
 });
 

@@ -1,3 +1,5 @@
+$(document).ready(function() {
+
 /* Snack 1)
 Creare un array di oggetti: Ogni oggetto descriverà una bici da corsa con le seguenti proprietà: nome e peso.
 Stampare a schermo la bici con peso minore utilizzando destructuring e template literal */
@@ -42,5 +44,81 @@ console.log(lessBikeWeight);
 let {nome, peso} = lessBikeWeight;      //Con il destructuring dell'oggetto prelevo nome e peso e stampo in console
 console.log(`La bici da corsa ${nome} è la più leggera con un peso di ${peso} kg`);
 
+/* Snack2) Creare un array di oggetti di squadre di calcio.
+Ogni squadra avrà diverse proprietà: nome, punti fatti, falli subiti.
+Nome sarà l’unica proprietà da compilare, le altre saranno tutte settate a 0.
+Generare numeri random al posto degli 0 nelle proprietà: Punti fatti e falli subiti.
+Infine usando la destrutturazione creiamo un nuovo array i cui elementi contengono solo nomi e falli subiti
+e stampiamo tutto in console. */
 
+var teams = [
+    {
+        "nome" : "Juventus",
+        "puntiFatti" : 0,
+        "falliSubiti" : 0
+    },
+    {
+        "nome": "Milan",
+        "puntiFatti": 0,
+        "falliSubiti": 0
+    },
+    {
+        "nome": "Inter",
+        "puntiFatti": 0,
+        "falliSubiti": 0
+    },
+    {
+        "nome": "Roma",
+        "puntiFatti": 0,
+        "falliSubiti": 0
+    },
+    {
+        "nome": "Napoli",
+        "puntiFatti": 0,
+        "falliSubiti": 0
+    },
+    {
+        "nome": "Lazio",
+        "puntiFatti": 0,
+        "falliSubiti": 0
+    },
+    {
+        "nome": "Fiorentina",
+        "puntiFatti": 0,
+        "falliSubiti": 0
+    },
+    {
+        "nome": "Atalanta",
+        "puntiFatti": 0,
+        "falliSubiti": 0
+    },
+    {
+        "nome": "Crotone",
+        "puntiFatti": 0,
+        "falliSubiti": 0
+    }
+];
 
+const randomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);   //Utilizzo arrow function per creare funzione randomica
+
+teams.forEach((element) => {
+    element["puntiFatti"] = randomNumber(15,100);
+    element["falliSubiti"] = randomNumber(50, 200);
+});
+
+console.warn("ESERCIZIO 2");
+console.log(teams);
+
+const newTeamsArray = [];       //Dichiaro nuovo array dove copiare proprietà che mi interessano
+
+teams.forEach((element) => {
+    var {nome, falliSubiti} = element;      //Tramite destructuring prelevo i valori relativi a nome e falli subiti
+    var newTeamObj = {};                    //Dichiaro nuovo oggetto dove copio chiave e valore delle proprietà interessate
+    newTeamObj.nome = nome;
+    newTeamObj.falliSubiti = falliSubiti;
+    newTeamsArray.push(newTeamObj);         //Pusho il nuovo oggetto nel nuovo array e tramite il ciclo forEach lo ripeto per tutti gli elementi
+});
+
+console.log(newTeamsArray);
+
+});

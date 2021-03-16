@@ -143,4 +143,11 @@ function newArray(array, a, b) {
     return newArray;
 }
 
+/* METODO UTILIZZANDO IL FILTER */
+const myArray2 = myArray.filter((element, index) => {
+    return index >= a && index < b;
+});
+
+console.log(myArray2);
+
 });
